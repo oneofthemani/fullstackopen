@@ -1,4 +1,5 @@
-import logo from './logo.svg';
+import { useState } from 'react';
+
 import './App.css';
 
 //and this is called destructuring
@@ -24,10 +25,30 @@ const Hello = ({ name, age }) => {
   )
 }
 
-const App = (props) => {
-  const { counter } = props;
+const App = () => {
+  const [ counter, setCounter ] = useState(0);
+
+  const handleClick = () => {
+    console.log('clicked');
+  }
+
+  setTimeout(
+    () => setCounter(counter + 1),
+    1000
+  )
+  //const { counter } = props;
+
+  console.log('rendering...' , counter); //for debugging the code
   return (
+    <div>
     <div>{counter}</div>
+    <button onClick={() => setCounter(0)}>
+      Push the zero button!
+    </button>
+    <button onClick={() => setCounter(counter + 1)}>
+      push the button and make the counter 1 up!
+    </button>
+      </div>
   )
 }
 
