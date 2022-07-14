@@ -25,6 +25,20 @@ const Hello = ({ name, age }) => {
   )
 }
 
+const myOwn = ({ something, nothing }) => {
+  const funcInsideFunc = () => {
+    return something + nothing;
+  }
+
+  return (
+    <div>
+      <p>
+        All things are either {something} or {nothing}. When you add them, you get {funcInsideFunc()}
+      </p>
+    </div>
+  )
+}
+
 const App = () => {
   const [ counter, setCounter ] = useState(0);
 
@@ -48,6 +62,7 @@ const App = () => {
     <button onClick={() => setCounter(counter + 1)}>
       push the button and make the counter 1 up!
     </button>
+    <myOwn something={1} nothing={-1} />
       </div>
   )
 }
